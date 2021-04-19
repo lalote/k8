@@ -93,6 +93,7 @@ spec:
       volumes:
       - name: cache-volume
         emptyDir: {}
+  strategy:
     rollingUpdate:
       maxSurge: 50%
       maxUnavailable: 30%
