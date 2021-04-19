@@ -43,7 +43,6 @@ spec:
         app: diplomado-re-v2-19-app
     spec:
       containers:
-      - name: diplomado-re-v2-19-app
       - env:
         - name: PORT
           value: "8080"
@@ -62,15 +61,15 @@ spec:
           failureThreshold: 21
           successThreshold: 1
         readinessProbe:
-        httpGet:
-          path: /rest/mscovid/test?msg=testing
-          port: 8080
-          scheme: HTTP
-        initialDelaySeconds: 90
-        periodSeconds: 10
-        timeoutSeconds: 3
-        failureThreshold: 3
-        successThreshold: 1
+          httpGet:
+            path: /rest/mscovid/test?msg=testing
+            port: 8080
+            scheme: HTTP
+          initialDelaySeconds: 90
+          periodSeconds: 10
+          timeoutSeconds: 3
+          failureThreshold: 3
+          successThreshold: 1
         image: nicolashermosilla/devopsusach:latest
         imagePullPolicy: IfNotPresent
         name: diplomado-re-v2-19-node
@@ -84,6 +83,9 @@ spec:
           limits:
             memory: 913M
             cpu: 1000m
+        volumeMounts:
+        - mountPath: /cache
+          name: cache-volume
       imagePullSecrets:
       - name: prd
       restartPolicy: Always
@@ -91,7 +93,6 @@ spec:
       volumes:
       - name: cache-volume
         emptyDir: {}
-  strategy:
     rollingUpdate:
       maxSurge: 50%
       maxUnavailable: 30%
