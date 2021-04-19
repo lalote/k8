@@ -134,9 +134,6 @@ metadata:
   name: diplomado-re-v2-19-ingress
   annotations:
     ingress.kubernetes.io/rewrite-target: /
-backend:
-  serviceName: other
-  servicePort: 8080
 spec:
   rules:
     - host: 35.239.221.195
