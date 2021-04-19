@@ -136,7 +136,7 @@ metadata:
     ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-    - host: 35.239.221.195
+    - host: localhost
       http:
         paths:
           - path: /
