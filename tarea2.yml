@@ -51,17 +51,17 @@ spec:
           value: "re-v2-19"
         - name: JAVA_OPTS
           value: "-Xms256m -Xmx256m"
-      livenessProbe:
-        httpGet:
-          path: /rest/mscovid/test?msg=testing
-          port: 8080
-          scheme: HTTP
-        initialDelaySeconds: 90
-        periodSeconds: 10
-        timeoutSeconds: 10
-        failureThreshold: 21
-        successThreshold: 1
-      readinessProbe:
+        livenessProbe:
+          httpGet:
+            path: /rest/mscovid/test?msg=testing
+            port: 8080
+            scheme: HTTP
+          initialDelaySeconds: 90
+          periodSeconds: 10
+          timeoutSeconds: 10
+          failureThreshold: 21
+          successThreshold: 1
+        readinessProbe:
         httpGet:
           path: /rest/mscovid/test?msg=testing
           port: 8080
